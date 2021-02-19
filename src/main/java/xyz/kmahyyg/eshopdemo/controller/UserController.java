@@ -28,7 +28,7 @@ public class UserController {
     @ResponseBody
     // This is only for debugging purpose, please remove
     public Object toWhoami() {
-        return SecurityContextHolder.getContext().getAuthentication();
+        return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 
     @RequestMapping("/show/user/logout")

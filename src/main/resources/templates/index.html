@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <title>Shop Index</title>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        $.ajax({
+            type: "get",
+            url: "/show/user/whoami",
+        }).done(function (respData) {
+            //需要获取响应状态码，状态码为200时才更改a标签的text
+            $("#userInfo").text(respData.replace(/\"/g, ""));
+        })
+    });
+</script>
 <body>
+<div><p>欢迎您:<a href="/show/user/info" id="userInfo">游客</a></p></div>
 <h1>Shop Index</h1>
 <a href="/show/user/login">Login</a>
 <a href="/show/user/register">Register</a>
